@@ -1,6 +1,13 @@
-# couldai_user_app
+# Touch Typing Practice
 
-A new Flutter project.
+A website to learn and practice touch typing, built with Flutter.
+
+## Features
+
+- Real-time WPM (Words Per Minute) calculation.
+- Accuracy tracking.
+- Visual feedback for correct and incorrect keystrokes.
+- A clean, focused user interface.
 
 ## Getting Started
 
