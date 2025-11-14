@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Touch Typing Practice',
+      title: '打字练习',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: const Color(0xFF282C34),
@@ -30,7 +30,7 @@ class TypingPage extends StatefulWidget {
 class _TypingPageState extends State<TypingPage> {
   final FocusNode _focusNode = FocusNode();
   final TextEditingController _controller = TextEditingController();
-  String _textToType = "the quick brown fox jumps over the lazy dog";
+  String _textToType = "我们一起学习打字，提高我们的打字速度和准确性。";
   int _currentCharIndex = 0;
   DateTime? _startTime;
   double _wpm = 0.0;
@@ -76,8 +76,8 @@ class _TypingPageState extends State<TypingPage> {
       if (_startTime != null) {
         final duration = DateTime.now().difference(_startTime!);
         if (duration.inSeconds > 0) {
-          // WPM calculation: (characters typed / 5) / minutes
-          _wpm = (_currentCharIndex / 5) / (duration.inMinutes + (duration.inSeconds / 60));
+          // WPM calculation for Chinese: characters typed / minutes
+          _wpm = _currentCharIndex / (duration.inMinutes + (duration.inSeconds / 60));
         }
       }
 
@@ -113,12 +113,12 @@ class _TypingPageState extends State<TypingPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text("Congratulations!"),
+          title: const Text("恭喜!"),
           content: Text(
-              "You completed the test.\n\nWPM: ${_wpm.toStringAsFixed(2)}\nAccuracy: ${_accuracy.toStringAsFixed(2)}%"),
+              "你完成了测试。\n\n速度: ${_wpm.toStringAsFixed(2)}\n准确率: ${_accuracy.toStringAsFixed(2)}%"),
           actions: <Widget>[
             TextButton(
-              child: const Text("Try Again"),
+              child: const Text("再试一次"),
               onPressed: () {
                 Navigator.of(context).pop();
                 _reset();
@@ -134,7 +134,7 @@ class _TypingPageState extends State<TypingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Touch Typing Practice'),
+        title: const Text('打字练习'),
         backgroundColor: const Color(0xFF21252B),
       ),
       body: GestureDetector(
@@ -174,8 +174,8 @@ class _TypingPageState extends State<TypingPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    _buildStat("WPM", _wpm.toStringAsFixed(2)),
-                    _buildStat("Accuracy", "${_accuracy.toStringAsFixed(2)}%"),
+                    _buildStat("速度", _wpm.toStringAsFixed(2)),
+                    _buildStat("准确率", "${_accuracy.toStringAsFixed(2)}%"),
                   ],
                 ),
                 const SizedBox(height: 40),
@@ -186,7 +186,7 @@ class _TypingPageState extends State<TypingPage> {
                     padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                     textStyle: const TextStyle(fontSize: 18),
                   ),
-                  child: const Text('Reset'),
+                  child: const Text('重置'),
                 ),
               ],
             ),

@@ -1,13 +1,13 @@
-# Touch Typing Practice
+# 打字练习
 
-A website to learn and practice touch typing, built with Flutter.
+一个使用 Flutter 构建的学习和练习打字的网站。
 
-## Features
+## 特性
 
-- Real-time WPM (Words Per Minute) calculation.
-- Accuracy tracking.
-- Visual feedback for correct and incorrect keystrokes.
-- A clean, focused user interface.
+- 实时速度 (每分钟字数) 计算。
+- 准确率跟踪。
+- 正确和错误按键的视觉反馈。
+- 一个简洁、专注的用户界面。
 
 ## Getting Started
 
